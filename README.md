@@ -1,2 +1,0 @@
-# shippy
-micro shippy

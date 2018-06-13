@@ -1,0 +1,28 @@
+
+// kuaibiji/note-service/proto/note/note.proto
+
+syntax = "proto3";
+package go.micro.srv.note;
+
+// 笔记微服务
+service NoteService {
+    // 新建笔记
+    rpc CreateNote (Note) returns (Response) {
+
+    }
+}
+
+// Note
+message Note {
+    string  id = 1;
+    string  content = 2;
+}
+
+// response
+message Response {
+    string id = 1;
+    string content = 2;
+    string create_time = 3;
+    string update_time = 4;
+}
+
