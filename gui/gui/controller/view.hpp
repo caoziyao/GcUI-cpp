@@ -13,8 +13,10 @@
 
 class GcView{
 public:
-    GcView *createView();
+    GcView(int x, int y, int width, int height);
     void draw();
+private:
+    void CreateView();
 };
 
 #endif /* view_hpp */

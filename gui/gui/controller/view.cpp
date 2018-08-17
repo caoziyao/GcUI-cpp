@@ -12,7 +12,10 @@ void GcView::draw() {
     
 }
 
-GcView *GcView::createView() {
+GcView::GcView(int x, int y, int width, int height) {
     
-    return nullptr;
+}
+
+void GcView::CreateView() {
+    
 }

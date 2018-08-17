@@ -7,12 +7,17 @@
 //
 
 /*
- todo
- 自定义的视频编码格式 .uipn
- 涉及 单张图片 的编码和压缩, 自定义格式
- 涉及 视频 的编码和压缩, 自定义格式 .guavideo
+ C++主要是用来完成支持上层脚本运行的底层框架搭建
+ 方案：c++ 调用 Lua 来写
+ 
+ 基本的渲染底层: SDL
+ 脚本解析框架: C++？ HTML+CSS Lua/JS?
+ 内存管理: 是否要在UI库中自行划定内存池、小内存分配器的概念
+ 事件管理: 选用全局的事件队列+局部事件队列
+ 布局管理: 借鉴Android的五大不同Layout
+ 动画管理: 借鉴iOS上的Core Animation
+ 单元测试: google test
  */
-
 #include <iostream>
 #include <string>
 
@@ -22,22 +27,29 @@
 
 //using std::string;
 
-int runTest(int argc,  char ** argv) {
+int RunTest(int argc,  char ** argv) {
     testing::InitGoogleTest(&argc, argv);
     // Runs all tests using Google Test.
     return RUN_ALL_TESTS();
 }
 
-int main(int argc,  char ** argv) {
-    
-    // run test
-    runTest(argc, argv);
-    
+
+void RunGui() {
     int w = 800;
     int h = 600;
-
+    
     Gui gui(w, h, "sss");
+    GcView view(10, 10, 20, 30);
+    
+    gui.AddView(view);
+    
     gui.run();
+}
+
+
+int main(int argc,  char ** argv) {
+    RunTest(argc, argv);
+    RunGui();
     return 0;
 }
 

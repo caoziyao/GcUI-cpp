@@ -16,12 +16,15 @@
 #include <SDL2_ttf/SDL_ttf.h>
 #include <SDL2_image/SDL_image.h>
 
+#include "view.hpp"
+
 using std::string;
 
 class Gui {
 public:
     void run();
     Gui(int width = 800, int height = 600, string title = "gc ui");
+    void AddView(GcView view);
     ~Gui();
 private:
     void initGui(int width = 800, int height = 600, string title= "gc ui");
@@ -30,6 +33,8 @@ private:
     void draw();
     void updateInput();
     void update();
+    
+    
     SDL_Window *window;
     SDL_Renderer *renderer;
 };

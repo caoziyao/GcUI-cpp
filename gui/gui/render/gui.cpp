@@ -36,10 +36,12 @@ void Gui::initGui(int width, int height, string title) {
                                   );
 }
 
+
 // 构造函数
 Gui::Gui(int width, int height, string title) {
     initGui(width, height, title);
 }
+
 
 // 析构函数
 Gui::~Gui() {
@@ -64,10 +66,19 @@ void Gui::run() {
     }
 }
 
+
+// 添加 GcView
+void Gui::AddView(GcView view) {
+    
+}
+
+
+// 显示
 void Gui::show() {
     SDL_RenderPresent(renderer);
 }
 
+//
 void Gui::clear() {
     // 设置背景颜色并清除屏幕
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -88,6 +99,8 @@ void Gui::draw() {
     SDL_RenderDrawRect(renderer, &rect);
 }
 
+
+// update input
 void Gui::updateInput() {
 
     SDL_Event event;
@@ -111,6 +124,7 @@ void Gui::updateInput() {
         }
     }
 }
+
 
 void Gui::update() {
     
