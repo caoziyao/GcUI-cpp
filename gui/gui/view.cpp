@@ -8,11 +8,11 @@
 
 #include "view.hpp"
 
-void View::draw() {
+void GcView::draw() {
     
 }
 
-View *View::createView() {
+GcView *GcView::createView() {
     
     return nullptr;
 }

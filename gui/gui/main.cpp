@@ -18,17 +18,25 @@
 
 #include "gui.hpp"
 #include "view.hpp"
+#include "gtest/gtest.h"
 
-using std::string;
+//using std::string;
 
+int runTest(int argc,  char ** argv) {
+    testing::InitGoogleTest(&argc, argv);
+    // Runs all tests using Google Test.
+    return RUN_ALL_TESTS();
+}
 
-int main(int argc, const char * argv[]) {
+int main(int argc,  char ** argv) {
+    
+    // run test
+    runTest(argc, argv);
     
     int w = 800;
     int h = 600;
-    
+
     Gui gui(w, h, "sss");
-    
     gui.run();
     return 0;
 }

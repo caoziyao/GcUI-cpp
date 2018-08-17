@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 
-class View{
+class GcView{
 public:
-    View *createView();
+    GcView *createView();
     void draw();
 };
 
