@@ -16,6 +16,7 @@
 
 #include "GuiView.hpp"
 #include "GcRenderer.hpp"
+#include "GcEvent.hpp"
 
 using std::string;
 using std::vector;
@@ -24,7 +25,7 @@ class GcGui {
 public:
     GcGui(int width = 800, int height = 600, string title = "gc ui");
     ~GcGui();
-    void AddView(GuiView GuiView);
+    void AddView(GuiView *view);
     void run();
 private:
     void InitGui(int width = 800, int height = 600, string title= "gc ui");
@@ -34,7 +35,7 @@ private:
     void UpdateInput();
     void update();
     
-    vector<GuiView> views;   // views
+    vector<GuiView *> views;   // views
     int numOfViews = 0;
     
     GcRenderer renderer;

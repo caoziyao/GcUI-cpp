@@ -10,20 +10,34 @@
 #define GuiView_hpp
 
 #include <stdio.h>
+#include <vector>
+
 #include "GcRect.hpp"
 #include "GcColor.hpp"
 #include "GcRenderer.hpp"
+#include "GcEvent.hpp"
+
+using std::vector;
 
 class GuiView{
 public:
     GcRect rect;
     GcColor backgroundColor;
-    GuiView(GcRect rect, GcColor backgroundColor);
-    void draw();
-    void SetRenderer(GcRenderer *renderer);
-private:
     GcRenderer *renderer = nullptr;
+    
+    GuiView(GcRect rect, GcColor backgroundColor);
+    virtual void Draw();
+    void SetRenderer(GcRenderer *renderer);
+    void AddElements(GuiView *element);
+    vector<GuiView *> elements;   // elements
+    
+    // evnet
+    virtual void OnMouse(GcEvent event);
+    virtual void OnKey(GcEvent event);
+private:
     void CreateView(GcRect rect, GcColor backgroundColor);
+    
+    
 };
 
 #endif /* GuiView_hpp */

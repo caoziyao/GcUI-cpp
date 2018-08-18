@@ -11,8 +11,6 @@
 GcRenderer::GcRenderer(int width, int height, string title) {
     SDL_Init(SDL_INIT_VIDEO);
     
-    //    char *t = "gua GcGui";
-    
     // 创建窗口
     // 窗口标题 窗口x 窗口y 宽 高 额外参数
     this->window = SDL_CreateWindow(
@@ -24,8 +22,7 @@ GcRenderer::GcRenderer(int width, int height, string title) {
                               SDL_WINDOW_RESIZABLE
                               );
     
-    // 创建渲染层 文档如下
-    // http://wiki.libsdl.org/SDL_CreateRenderer?highlight=%28SDL_CreateRenderer%29
+    // 创建渲染层
     this->renderer = SDL_CreateRenderer(
                                   this->window,
                                   -1,
@@ -35,7 +32,6 @@ GcRenderer::GcRenderer(int width, int height, string title) {
 
 //
 GcRenderer::~GcRenderer() {
-    
 }
 
 // clear
@@ -51,26 +47,54 @@ void GcRenderer::Show() {
     SDL_RenderPresent(r);
 }
 
+void GcRenderer::GcUIClose() {
+    SDL_DestroyRenderer(this->renderer);
+    SDL_DestroyWindow(this->window);
+    SDL_Quit();
+}
+
+// 鼠标事件
+void GcRenderer::GcOnMouse(SDL_Event event, GcEvent *gcEvent) {
+    
+    if (event.type == SDL_MOUSEBUTTONDOWN) {
+        // todo 枚举
+        gcEvent->type = 1;
+    }
+    
+}
+
+// 键盘事件
+void GcRenderer::GcOnKey(SDL_Event event) {
+    
+}
+
 // update input
-void GcRenderer::UpdateInput() {
+GcEvent GcRenderer::UpdateInput() {
     SDL_Event event;
+    GcEvent e;
+    
     while(SDL_PollEvent(&event)) {
         switch(event.type) {
+            case SDL_MOUSEBUTTONDOWN:
+            case SDL_MOUSEBUTTONUP:
+            case SDL_MOUSEMOTION:
+                // 鼠标事件
+                GcOnMouse(event, &e);
+                break;
             case SDL_KEYDOWN:
+            case SDL_KEYUP:
+                // 键盘事件
+//                GcOnKey(event);
                 break;
             case SDL_QUIT:
                 // 退出，点击关闭窗口按钮的事件
-                SDL_DestroyRenderer(this->renderer);
-                SDL_DestroyWindow(this->window);
-                SDL_Quit();
+                GcUIClose();
                 exit(0);
                 break;
-            case SDL_MOUSEBUTTONDOWN:
-                break;
-            case SDL_MOUSEBUTTONUP:
-                break;
         }
+       
     }
+    return e;
 }
 
 // set color

@@ -11,9 +11,19 @@
 
 #include <stdio.h>
 #include "GuiView.hpp"
+#include "GcEvent.hpp"
 
-class GuiButton: public GuiView {
+class GuiButton:public GuiView {
+public:
+    GcRect rect;
+    GcColor color;
+    void Draw();
+    GuiButton(GcRect rect, GcColor color);
+    bool pressed = false;   // true 按下
     
+    // evnet
+    void OnMouse(GcEvent event);
+    void OnKey(GcEvent event);
 };
 
 #endif /* button_hpp */

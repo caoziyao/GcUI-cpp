@@ -7,3 +7,29 @@
 //
 
 #include "GuiButton.hpp"
+
+//
+GuiButton::GuiButton(GcRect rect, GcColor color): GuiView(rect, color), rect(rect), color(color) {
+    
+}
+
+// draw
+void GuiButton::Draw() {
+    GcRect rect = this->rect;
+    GcColor color = this->backgroundColor;
+
+    this->renderer->DrawRect(rect, color);
+    
+    if (this->pressed) {
+        this->renderer->RenderFillRect(rect, color);
+    }
+}
+
+// event
+void GuiButton::OnMouse(GcEvent event) {
+    std::cout << "btn," << std::endl;
+}
+
+void GuiButton::OnKey(GcEvent event) {
+    
+}

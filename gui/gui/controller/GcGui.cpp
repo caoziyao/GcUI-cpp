@@ -27,8 +27,8 @@ void GcGui::InitGui(int width, int height, string title) {
 }
 
 // 添加 GuiView
-void GcGui::AddView(GuiView view) {
-    view.SetRenderer(&this->renderer);
+void GcGui::AddView(GuiView *view) {
+    view->SetRenderer(&this->renderer);
     views.push_back(view);
     
     numOfViews = (int)views.size();
@@ -37,26 +37,28 @@ void GcGui::AddView(GuiView view) {
 // 显示
 void GcGui::show() {
     this->renderer.Show();
-//    SDL_RenderPresent(renderer);
 }
 
 //
 void GcGui::Clear() {
     // 设置背景颜色并清除屏幕
     this->renderer.Clear();
-//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-//    SDL_RenderClear(renderer);
 }
 
 void GcGui::draw() {
-    for (GuiView view : this->views) {
-        view.draw();
+    for (GuiView *view : this->views) {
+        view->Draw();
     }
 }
 
 // update input
 void GcGui::UpdateInput() {
-    this->renderer.UpdateInput();
+    GcEvent e = this->renderer.UpdateInput();
+    if (e.type == 1) {
+        for (GuiView *view : this->views) {
+            view->OnMouse(e);
+        }
+    }
 }
 
 // update

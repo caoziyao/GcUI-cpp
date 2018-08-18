@@ -18,6 +18,7 @@
 
 #include "GcRect.hpp"
 #include "GcColor.hpp"
+#include "GcEvent.hpp"
 
 using std::string;
 
@@ -34,9 +35,12 @@ public:
     void DrawText();
     void LoadFont();
     void Show();
-    void UpdateInput();
+    GcEvent UpdateInput();
     void RenderFillRect(GcRect rect, GcColor color);
 private:
+    void GcOnMouse(SDL_Event event, GcEvent *gcEvent);
+    void GcOnKey(SDL_Event event);
+    void GcUIClose();
     SDL_Window *window;
     SDL_Renderer *renderer;
 };

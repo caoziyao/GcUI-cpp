@@ -25,6 +25,8 @@
 #include "GuiView.hpp"
 #include "GcColor.hpp"
 #include "GcRect.hpp"
+#include "GuiButton.hpp"
+
 #include "gtest/gtest.h"
 
 //using std::string;
@@ -41,10 +43,16 @@ void RunGui() {
     
     GcGui GcGui(w, h, "sss");
     GcRect rect(10, 10, 120, 230);
-    GcColor viewColor(0, 124, 22, 255);
-    GuiView GuiView(rect, viewColor);
+    GcColor viewColor(255, 255, 255, 255);
     
-    GcGui.AddView(GuiView);
+    GuiView view(rect, viewColor);
+    GcGui.AddView(&view);
+    
+    GcRect btnRect(15, 205, 100, 30);
+    GcColor btnColor(12, 12, 100, 255);
+    GuiButton btn(btnRect, btnColor);
+    
+    view.AddElements(&btn);
     GcGui.run();
 }
 
