@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  gui
+//  GcGui
 //
 //  Created by working on 2018/8/17.
 //  Copyright © 2018年 working. All rights reserved.
@@ -21,8 +21,8 @@
 #include <iostream>
 #include <string>
 
-#include "gui.hpp"
-#include "view.hpp"
+#include "GcGui.hpp"
+#include "GuiView.hpp"
 #include "gtest/gtest.h"
 
 //using std::string;
@@ -38,12 +38,12 @@ void RunGui() {
     int w = 800;
     int h = 600;
     
-    Gui gui(w, h, "sss");
-    GcView view(10, 10, 20, 30);
+    Gui GcGui(w, h, "sss");
+    GuiView GuiView(10, 10, 20, 30);
     
-    gui.AddView(view);
+    GcGui.AddView(GuiView);
     
-    gui.run();
+    GcGui.run();
 }
 
 

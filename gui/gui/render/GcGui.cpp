@@ -1,20 +1,20 @@
 //
-//  gui.cpp
-//  gui
+//  GcGui.cpp
+//  GcGui
 //
 //  Created by working on 2018/8/17.
 //  Copyright © 2018年 working. All rights reserved.
 //
 
-#include "gui.hpp"
+#include "GcGui.hpp"
 
 using std::string;
 
-void Gui::initGui(int width, int height, string title) {
+void Gui::InitGui(int width, int height, string title) {
     // 初始化 SDL
     SDL_Init(SDL_INIT_VIDEO);
     
-    //    char *t = "gua gui";
+    //    char *t = "gua GcGui";
     
     // 创建窗口
     // 窗口标题 窗口x 窗口y 宽 高 额外参数
@@ -39,7 +39,7 @@ void Gui::initGui(int width, int height, string title) {
 
 // 构造函数
 Gui::Gui(int width, int height, string title) {
-    initGui(width, height, title);
+    InitGui(width, height, title);
 }
 
 
@@ -51,7 +51,7 @@ Gui::~Gui() {
 // 运行
 void Gui::run() {
     while(true) {
-        updateInput();
+        UpdateInput();
         // 1, update
         update();
         
@@ -67,9 +67,10 @@ void Gui::run() {
 }
 
 
-// 添加 GcView
-void Gui::AddView(GcView view) {
-    
+// 添加 GuiView
+void Gui::AddView(GuiView GuiView) {
+    GuiViews.push_back(GuiView);
+    numOfViews = (int)GuiViews.size();
 }
 
 
@@ -101,7 +102,7 @@ void Gui::draw() {
 
 
 // update input
-void Gui::updateInput() {
+void Gui::UpdateInput() {
 
     SDL_Event event;
     while(SDL_PollEvent(&event)) {
