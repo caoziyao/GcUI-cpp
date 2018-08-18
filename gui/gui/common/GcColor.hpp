@@ -11,4 +11,13 @@
 
 #include <stdio.h>
 
+class GcColor{
+public:
+    int r;
+    int g;
+    int b;
+    int a;
+    GcColor(int r, int g, int b, int a);
+};
+
 #endif /* GcColor_hpp */

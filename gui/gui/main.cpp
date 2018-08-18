@@ -23,29 +23,30 @@
 
 #include "GcGui.hpp"
 #include "GuiView.hpp"
+#include "GcColor.hpp"
+#include "GcRect.hpp"
 #include "gtest/gtest.h"
 
 //using std::string;
 
+// Runs all tests using Google Test.
 int RunTest(int argc,  char ** argv) {
     testing::InitGoogleTest(&argc, argv);
-    // Runs all tests using Google Test.
     return RUN_ALL_TESTS();
 }
-
 
 void RunGui() {
     int w = 800;
     int h = 600;
     
-    Gui GcGui(w, h, "sss");
-    GuiView GuiView(10, 10, 20, 30);
+    GcGui GcGui(w, h, "sss");
+    GcRect rect(10, 10, 120, 230);
+    GcColor viewColor(0, 124, 22, 255);
+    GuiView GuiView(rect, viewColor);
     
     GcGui.AddView(GuiView);
-    
     GcGui.run();
 }
-
 
 int main(int argc,  char ** argv) {
     RunTest(argc, argv);

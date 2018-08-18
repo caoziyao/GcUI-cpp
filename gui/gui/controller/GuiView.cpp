@@ -9,16 +9,23 @@
 #include "GuiView.hpp"
 
 void GuiView::draw() {
+    GcRect rect = this->rect;
+    GcColor color = this->backgroundColor;
     
+    this->renderer->DrawRect(rect, color);
+    this->renderer->RenderFillRect(rect, color);
 }
 
-GuiView::GuiView(int x, int y, int width, int height) {
-    this->CreateView(x, y, width, height);
+GuiView::GuiView(GcRect rect, GcColor backgroundColor) : rect(rect), backgroundColor(backgroundColor) {
+    this->CreateView(rect, backgroundColor);
 }
 
-void GuiView::CreateView(int x, int y, int width, int height) {
-    this->x = x;
-    this->y = y;
-    this->width = width;
-    this->height = height;
+void GuiView::CreateView(GcRect rect, GcColor backgroundColor) {
+    this->rect = rect;
+    this->backgroundColor = backgroundColor;
+}
+
+// SetRenderer
+void GuiView::SetRenderer(GcRenderer *renderer) {
+    this->renderer = renderer;
 }

@@ -12,35 +12,32 @@
 #include <string>
 #include <stdio.h>
 #include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#include <SDL2_image/SDL_image.h>
 #include <vector>
 
 #include "GuiView.hpp"
+#include "GcRenderer.hpp"
 
 using std::string;
 using std::vector;
 
-class Gui {
+class GcGui {
 public:
-    void run();
-    Gui(int width = 800, int height = 600, string title = "gc ui");
+    GcGui(int width = 800, int height = 600, string title = "gc ui");
+    ~GcGui();
     void AddView(GuiView GuiView);
-    ~Gui();
+    void run();
 private:
     void InitGui(int width = 800, int height = 600, string title= "gc ui");
     void show();
-    void clear();
+    void Clear();
     void draw();
     void UpdateInput();
     void update();
     
-    vector<GuiView> GuiViews;   // GuiView
+    vector<GuiView> views;   // views
     int numOfViews = 0;
     
-    SDL_Window *window;
-    SDL_Renderer *renderer;
+    GcRenderer renderer;
 };
 
 

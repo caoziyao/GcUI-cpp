@@ -10,17 +10,20 @@
 #define GuiView_hpp
 
 #include <stdio.h>
+#include "GcRect.hpp"
+#include "GcColor.hpp"
+#include "GcRenderer.hpp"
 
 class GuiView{
 public:
-    int x;
-    int y;
-    int width;
-    int height;
-    GuiView(int x, int y, int width, int height);
+    GcRect rect;
+    GcColor backgroundColor;
+    GuiView(GcRect rect, GcColor backgroundColor);
     void draw();
+    void SetRenderer(GcRenderer *renderer);
 private:
-    void CreateView(int x, int y, int width, int height);
+    GcRenderer *renderer = nullptr;
+    void CreateView(GcRect rect, GcColor backgroundColor);
 };
 
 #endif /* GuiView_hpp */
