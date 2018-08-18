@@ -10,10 +10,11 @@
 #define GcEvent_hpp
 
 #include <stdio.h>
+#include "GcEventType.hpp"
 
 class GcEvent {
 public:
-    int type = 0;
+    int type = EnumUnKnowEvent;
 };
 
 

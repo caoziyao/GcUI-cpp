@@ -17,6 +17,7 @@
 #include "GuiView.hpp"
 #include "GcRenderer.hpp"
 #include "GcEvent.hpp"
+#include "GcEventType.hpp"
 
 using std::string;
 using std::vector;

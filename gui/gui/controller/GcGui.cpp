@@ -54,7 +54,7 @@ void GcGui::draw() {
 // update input
 void GcGui::UpdateInput() {
     GcEvent e = this->renderer.UpdateInput();
-    if (e.type == 1) {
+    if (e.type == EnumMouseButtonDown) {
         for (GuiView *view : this->views) {
             view->OnMouse(e);
         }

@@ -19,6 +19,7 @@
 #include "GcRect.hpp"
 #include "GcColor.hpp"
 #include "GcEvent.hpp"
+#include "GcEventType.hpp"
 
 using std::string;
 

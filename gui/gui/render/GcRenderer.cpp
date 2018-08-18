@@ -58,7 +58,7 @@ void GcRenderer::GcOnMouse(SDL_Event event, GcEvent *gcEvent) {
     
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         // todo 枚举
-        gcEvent->type = 1;
+        gcEvent->type = EnumMouseButtonDown;
     }
     
 }

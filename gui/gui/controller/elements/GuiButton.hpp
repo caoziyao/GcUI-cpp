@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "GuiView.hpp"
 #include "GcEvent.hpp"
+#include "GcEventType.hpp"
 
 class GuiButton:public GuiView {
 public:
