@@ -1,20 +1,19 @@
--- config = {}
---
--- -- 程序可以用 config.lua 来配置窗口标题 宽 高这 3 个选项
--- -- 定义一个常量
--- config.title = "draw lua"
--- config.width = 800
--- config.height = 600
 
-drawLine()
+-- config = {
+--     title = "config lua"
+--     width = 800
+--     height = 600
+-- }
+str = "I am so cool"
+tbl = {name = "shun", id = 123}
 
-config = function ()
+config = function (arg)
 	print("logging")
+	print(arg)
 	local title = "draw lua"
 	local width = 800
 	local height = 600
 	return title, width, height
 end
 
-
-return config
+drawLine()
