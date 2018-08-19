@@ -7,7 +7,7 @@
 //
 
 #include "GuiView.hpp"
-
+#include "GuiButton.hpp"
 GuiView::GuiView(GcRect rect, GcColor backgroundColor) : rect(rect), backgroundColor(backgroundColor) {
 //    this->CreateView(rect, backgroundColor);
 }
@@ -22,7 +22,9 @@ void GuiView::Draw() {
     this->renderer->RenderFillRect(rect, color);
     
     // 画 child
-    for (GuiView *e : this->elements) {
+    for (auto e : this->elements) {
+//        GuiButton *child=dynamic_cast<GuiButton *>(e);
+//        child->Draw();
         e->Draw();
     }
 }
@@ -40,7 +42,7 @@ void GuiView::SetRenderer(GcRenderer *renderer) {
 
 // 添加元素
 void GuiView::AddElements(GuiView *element) {
-    element->renderer = this->renderer;
+//    element->renderer = this->renderer;
     this->elements.push_back(element);
 }
 

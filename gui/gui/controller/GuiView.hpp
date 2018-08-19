@@ -24,9 +24,10 @@ public:
     GcRect rect;
     GcColor backgroundColor;
     GcRenderer *renderer = nullptr;
+    virtual void Draw();
     
     GuiView(GcRect rect, GcColor backgroundColor);
-    virtual void Draw();
+    
     void SetRenderer(GcRenderer *renderer);
     void AddElements(GuiView *element);
     vector<GuiView *> elements;   // elements

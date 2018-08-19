@@ -13,6 +13,7 @@ using std::string;
 // 构造函数
 GcGui::GcGui(int width, int height, string title): renderer(width, height, title) {
     InitGui(width, height, title);
+    
 }
 
 // 析构函数
@@ -24,6 +25,11 @@ GcGui::~GcGui() {
 void GcGui::InitGui(int width, int height, string title) {
 //    GcRenderer renderer(width, height, title);
 //    this->renderer = renderer;
+    
+//    LuaRef lua;
+//    
+//    this->lua = &lua;
+//    RegisterAllApi();
 }
 
 // 添加 GuiView
@@ -83,3 +89,5 @@ void GcGui::run() {
         show();
     }
 }
+
+

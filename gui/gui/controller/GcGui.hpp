@@ -28,6 +28,7 @@ public:
     ~GcGui();
     void AddView(GuiView *view);
     void run();
+    vector<GuiView *> views;   // views
 private:
     void InitGui(int width = 800, int height = 600, string title= "gc ui");
     void show();
@@ -36,7 +37,7 @@ private:
     void UpdateInput();
     void update();
     
-    vector<GuiView *> views;   // views
+    
     int numOfViews = 0;
     
     GcRenderer renderer;

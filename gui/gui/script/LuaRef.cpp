@@ -8,34 +8,39 @@
 
 #include "LuaRef.hpp"
 
+// RegisterAllApi
+//void LuaRef::RegisterAllApi() {
+//    Register("drawLine", DrawLine);
+//}
+static lua_State *L;
+
 // 初始化
 LuaRef::LuaRef() {
-    lua_State *L = luaL_newstate();
+    L = luaL_newstate();
     luaL_openlibs(L);
-    this->L = L;
+//    this->L = L;
 }
 
 // 载入 lua 文件并执行
 void LuaRef::DoFile(string path) {
-    lua_State *L  = this->L;
+//    lua_State *L  = this->L;
     if(luaL_dofile(L, path.c_str())) {
         cout << "LUA ERROR config: " <<  lua_tostring(L, -1) << endl;
-//        printf("LUA ERROR config: %s\n", lua_tostring(L, -1));
     }
 }
 
 // close
 void LuaRef::Close() {
-    lua_State *L  = this->L;
+//    lua_State *L  = this->L;
     lua_close(L);
 }
 
 // 注册api
 void LuaRef::Register(string funcName, lua_CFunction func) {
-    lua_State *L  = this->L;
+//    lua_State *L  = this->L;
     lua_register(L, funcName.c_str(), func);
 }
-    
+
 // 
 void configFromLua(lua_State *L) {
     // int n1 = 1;

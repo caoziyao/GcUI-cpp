@@ -17,3 +17,6 @@ config = function (arg)
 end
 
 drawLine()
+
+CreateButton(25, 35, 100, 30)
+CreateButton(35, 85, 200, 30)

@@ -103,6 +103,7 @@ void GcRenderer::SetColor(GcColor color) {
     int g = color.g;
     int b = color.b;
     int a = color.a;
+    SDL_Renderer *renderer = this->renderer;
     
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
@@ -117,7 +118,7 @@ void GcRenderer::DrawRect(GcRect rect, GcColor color) {
     r.y = rect.y;
     r.w = rect.width;
     r.h = rect.height;
-    
+    SDL_Renderer *renderer = this->renderer;
     SDL_RenderDrawRect(renderer, &r);
 }
 

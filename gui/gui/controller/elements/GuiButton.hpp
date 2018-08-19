@@ -18,6 +18,7 @@ class GuiButton:public GuiView {
 public:
     GcRect rect;
     GcColor color;
+    GcRenderer *renderer;
     void Draw();
     GuiButton(GcRect rect, GcColor color);
     bool pressed = false;   // true 按下

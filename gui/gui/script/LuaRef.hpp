@@ -25,14 +25,16 @@ using std::string;
 using std::cout;
 using std::endl;
 
+// typedef int (*lua_CFunction) (lua_State *L);
+
 class LuaRef {
 public:
     LuaRef();
     void DoFile(string path);
     void Register(string funcName, lua_CFunction func);
     void Close();
-private:
-    lua_State *L;
+//private:
+//    lua_State *L;
 };
 
 
