@@ -21,29 +21,31 @@
 #include "GcEvent.hpp"
 #include "GcEventType.hpp"
 
-using std::string;
+namespace gc {
+    
+    class GcRenderer {
+    public:
+        GcRenderer(int width, int height, std::string title);
+        ~GcRenderer();
+        void Clear();
+        void SetColor(GcColor color);
+        void SetFont();
+        void DrawRect(GcRect rect, GcColor color);
+        void DrawCircle();
+        void DrawLine();
+        void DrawText();
+        void LoadFont();
+        void Show();
+        GcEvent UpdateInput();
+        void RenderFillRect(GcRect rect, GcColor color);
+    private:
+        void GcOnMouse(SDL_Event *event, GcEvent *gcEvent);
+        void GcOnKey(SDL_Event event);
+        void GcUIClose();
+        SDL_Window *window;
+        SDL_Renderer *renderer;
+    };
 
-class GcRenderer {
-public:
-    GcRenderer(int width, int height, string title);
-    ~GcRenderer();
-    void Clear();
-    void SetColor(GcColor color);
-    void SetFont();
-    void DrawRect(GcRect rect, GcColor color);
-    void DrawCircle();
-    void DrawLine();
-    void DrawText();
-    void LoadFont();
-    void Show();
-    GcEvent UpdateInput();
-    void RenderFillRect(GcRect rect, GcColor color);
-private:
-    void GcOnMouse(SDL_Event *event, GcEvent *gcEvent);
-    void GcOnKey(SDL_Event event);
-    void GcUIClose();
-    SDL_Window *window;
-    SDL_Renderer *renderer;
-};
+}
 
 #endif /* GcRenderer_hpp */

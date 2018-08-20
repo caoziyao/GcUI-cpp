@@ -11,11 +11,13 @@
 
 #include <stdio.h>
 
-class GcPoint{
-public:
-    GcPoint(int x, int y): x(x), y(y){};
-    int x;
-    int y;
-};
-
+namespace gc {
+    
+    class GcPoint{
+    public:
+        GcPoint(int x, int y): x(x), y(y){};
+        int x;
+        int y;
+    };
+}
 #endif /* GcPoint_hpp */

@@ -17,20 +17,24 @@
 #include "utils.hpp"
 #include "GcRect.hpp"
 
-class GuiButton:public GuiView {
-public:
-    GcRect rect;
-    GcColor color;
-    GcRenderer *renderer;
-    void Draw();
-    GuiButton(GcRect rect, GcColor color);
-    bool pressed = false;   // true 按下
+namespace gc{
     
-    // evnet
-    void OnMouse(GcEvent event);
-    void OnKey(GcEvent event);
-    
-    void (*OnButtonDown)();
-};
+    class GuiButton:public GuiView {
+    public:
+        GcRect rect;
+        GcColor color;
+        GcRenderer *renderer;
+        void Draw();
+        GuiButton(GcRect rect, GcColor color);
+        bool pressed = false;   // true 按下
+        
+        // evnet
+        void OnMouse(GcEvent event);
+        void OnKey(GcEvent event);
+        
+        void (*OnButtonDown)();
+    };
+}
+
 
 #endif /* button_hpp */

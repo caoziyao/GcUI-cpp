@@ -11,31 +11,34 @@
 
 #include <stdio.h>
 
-typedef enum {
-    // unknow event
-    EnumUnKnowEvent = 0,
-    
-    // Keyboard events
-    EnumKeyDown = 0x300,
-    EnumKeyUp,
-    EnumTextEditing,
-    EnumTextInput,
-    
-    // Mouse events
-    EnumMouseMotion = 0x400,
-    EnumMouseButtonDown,
-    EnumMouseButtonUp,
-    EnumMouseWheel,
-    
-    // Clipboard events
-    EnumClipboardUpdate = 0x900,
-    
-    // Drag and drop events
-    EnumDropFile = 0x1000,
-    EnumDropText,
-    EnumDropBegin,
-    EnumDropComplete,
-    
-}GcEventType;
+namespace gc {
+    typedef enum {
+        // unknow event
+        EnumUnKnowEvent = 0,
+        
+        // Keyboard events
+        EnumKeyDown = 0x300,
+        EnumKeyUp,
+        EnumTextEditing,
+        EnumTextInput,
+        
+        // Mouse events
+        EnumMouseMotion = 0x400,
+        EnumMouseButtonDown,
+        EnumMouseButtonUp,
+        EnumMouseWheel,
+        
+        // Clipboard events
+        EnumClipboardUpdate = 0x900,
+        
+        // Drag and drop events
+        EnumDropFile = 0x1000,
+        EnumDropText,
+        EnumDropBegin,
+        EnumDropComplete,
+        
+    }GcEventType;
+}
+
 
 #endif /* GcEventType_hpp */

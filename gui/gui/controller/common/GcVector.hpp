@@ -11,10 +11,14 @@
 
 #include <stdio.h>
 
-class GcVector {
-public:
-    int x;
-    int y;
-};
+namespace gc {
+    
+    class GcVector {
+    public:
+        int x;
+        int y;
+    };
+}
+
 
 #endif /* GcVector_hpp */

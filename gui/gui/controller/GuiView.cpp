@@ -8,52 +8,56 @@
 
 #include "GuiView.hpp"
 #include "GuiButton.hpp"
-GuiView::GuiView(GcRect rect, GcColor backgroundColor) : rect(rect), backgroundColor(backgroundColor) {
-//    this->CreateView(rect, backgroundColor);
-}
 
-// draw
-void GuiView::Draw() {
-    GcRect rect = this->rect;
-    GcColor color = this->backgroundColor;
+namespace gc {
+    GuiView::GuiView(GcRect rect, GcColor backgroundColor) : rect(rect), backgroundColor(backgroundColor) {
+        //    this->CreateView(rect, backgroundColor);
+    }
     
-    // 画自己
-    this->renderer->DrawRect(rect, color);
-    this->renderer->RenderFillRect(rect, color);
+    // draw
+    void GuiView::Draw() {
+        GcRect rect = this->rect;
+        GcColor color = this->backgroundColor;
+        
+        // 画自己
+        this->renderer->DrawRect(rect, color);
+        this->renderer->RenderFillRect(rect, color);
+        
+        // 画 child
+        for (auto e : this->elements) {
+            //        GuiButton *child=dynamic_cast<GuiButton *>(e);
+            //        child->Draw();
+            e->Draw();
+        }
+    }
     
-    // 画 child
-    for (auto e : this->elements) {
-//        GuiButton *child=dynamic_cast<GuiButton *>(e);
-//        child->Draw();
-        e->Draw();
+    // 新建 view
+    void GuiView::CreateView(GcRect rect, GcColor backgroundColor) {
+        //    this->rect = rect;
+        //    this->backgroundColor = backgroundColor;
+    }
+    
+    // SetRenderer
+    void GuiView::SetRenderer(GcRenderer *renderer) {
+        this->renderer = renderer;
+    }
+    
+    // 添加元素
+    void GuiView::AddElements(GuiView *element) {
+        //    element->renderer = this->renderer;
+        this->elements.push_back(element);
+    }
+    
+    // event
+    void GuiView::OnMouse(GcEvent event) {
+        // 子元素
+        for (GuiView *e : this->elements) {
+            e->OnMouse(event);
+        }
+    }
+    
+    void GuiView::OnKey(GcEvent event) {
+        
     }
 }
 
-// 新建 view
-void GuiView::CreateView(GcRect rect, GcColor backgroundColor) {
-//    this->rect = rect;
-//    this->backgroundColor = backgroundColor;
-}
-
-// SetRenderer
-void GuiView::SetRenderer(GcRenderer *renderer) {
-    this->renderer = renderer;
-}
-
-// 添加元素
-void GuiView::AddElements(GuiView *element) {
-//    element->renderer = this->renderer;
-    this->elements.push_back(element);
-}
-
-// event
-void GuiView::OnMouse(GcEvent event) {
-    // 子元素
-    for (GuiView *e : this->elements) {
-        e->OnMouse(event);
-    }
-}
-
-void GuiView::OnKey(GcEvent event) {
-    
-}

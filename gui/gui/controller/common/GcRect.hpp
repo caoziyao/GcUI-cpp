@@ -11,13 +11,16 @@
 
 #include <stdio.h>
 
-class GcRect{
-public:
-    int x;
-    int y;
-    int width;
-    int height;
-    GcRect(int x, int y, int width, int height);
-};
+namespace gc {
+    
+    class GcRect{
+    public:
+        int x;
+        int y;
+        int width;
+        int height;
+        GcRect(int x, int y, int width, int height);
+    };
 
+}
 #endif /* GcRect_hpp */

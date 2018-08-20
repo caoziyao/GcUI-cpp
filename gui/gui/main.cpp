@@ -34,6 +34,8 @@
 #include "ButtonSample.hpp"
 //using std::string;
 
+using namespace gc;
+
 // Runs all tests using Google Test.
 int RunTest(int argc,  char ** argv) {
     testing::InitGoogleTest(&argc, argv);
@@ -43,7 +45,6 @@ int RunTest(int argc,  char ** argv) {
 int main(int argc,  char ** argv) {
 //    RunTest(argc, argv);
 //    RunGui();
-    
     ButtonSample1();
     
     return 0;

@@ -19,29 +19,27 @@
 #include "GcEvent.hpp"
 #include "GcEventType.hpp"
 
-using std::string;
-using std::vector;
+namespace gc {
+    
+    class GcGui {
+    public:
+        GcGui(int width = 800, int height = 600, std::string title = "gc ui");
+        ~GcGui();
+        void AddView(GuiView *view);
+        void run();
+        std::vector<GuiView *> views;   // views
+    private:
+        void InitGui(int width = 800, int height = 600, std::string title= "gc ui");
+        void show();
+        void Clear();
+        void draw();
+        void UpdateInput();
+        void update();
+        int numOfViews = 0;
+        GcRenderer renderer;
+    };
 
-class GcGui {
-public:
-    GcGui(int width = 800, int height = 600, string title = "gc ui");
-    ~GcGui();
-    void AddView(GuiView *view);
-    void run();
-    vector<GuiView *> views;   // views
-private:
-    void InitGui(int width = 800, int height = 600, string title= "gc ui");
-    void show();
-    void Clear();
-    void draw();
-    void UpdateInput();
-    void update();
-    
-    
-    int numOfViews = 0;
-    
-    GcRenderer renderer;
-};
+}
 
 
 #endif /* GcGui_hpp */

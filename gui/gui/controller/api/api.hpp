@@ -21,19 +21,21 @@ extern "C" {
 #include "LuaRef.hpp"
 #include "GcGui.hpp"
 
-using std::string;
+namespace gc{
+    
+    class GuiApi {
+    public:
+        GuiApi(GcGui *gui, LuaRef *lua);
+        void RegisterAllApi();
+        void RunScript(std::string path);
+    private:
+        GcGui *gui;
+        LuaRef *lua;
+    };
+    
+    int DrawLine(lua_State *L);
+}
 
-class GuiApi {
-public:
-    GuiApi(GcGui *gui, LuaRef *lua);
-    void RegisterAllApi();
-    void RunScript(string path);
-private:
-    GcGui *gui;
-    LuaRef *lua;
-};
-
-int DrawLine(lua_State *L);
 
 
 #endif /* api_hpp */

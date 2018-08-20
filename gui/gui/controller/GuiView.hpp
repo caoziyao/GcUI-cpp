@@ -17,28 +17,28 @@
 #include "GcRenderer.hpp"
 #include "GcEvent.hpp"
 
-using std::vector;
+namespace gc {
 
-class GuiView{
-public:
-    GcRect rect;
-    GcColor backgroundColor;
-    GcRenderer *renderer = nullptr;
-    virtual void Draw();
-    
-    GuiView(GcRect rect, GcColor backgroundColor);
-    
-    void SetRenderer(GcRenderer *renderer);
-    void AddElements(GuiView *element);
-    vector<GuiView *> elements;   // elements
-    
-    // evnet
-    virtual void OnMouse(GcEvent event);
-    virtual void OnKey(GcEvent event);
-private:
-    void CreateView(GcRect rect, GcColor backgroundColor);
-    
-    
-};
+    class GuiView{
+    public:
+        GcRect rect;
+        GcColor backgroundColor;
+        GcRenderer *renderer = nullptr;
+        virtual void Draw();
+        
+        GuiView(GcRect rect, GcColor backgroundColor);
+        
+        void SetRenderer(GcRenderer *renderer);
+        void AddElements(GuiView *element);
+        std::vector<GuiView *> elements;   // elements
+        
+        // evnet
+        virtual void OnMouse(GcEvent event);
+        virtual void OnKey(GcEvent event);
+    private:
+        void CreateView(GcRect rect, GcColor backgroundColor);
+    };
+}
+
 
 #endif /* GuiView_hpp */

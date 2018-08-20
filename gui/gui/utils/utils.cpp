@@ -8,18 +8,22 @@
 
 #include "utils.hpp"
 
-bool PointInRect(GcPoint point, GcRect rect) {
+namespace gc {
     
-    int x = point.x;
-    int y = point.y;
-    int rectX = rect.x;
-    int rectY = rect.y;
-    int width = rect.width;
-    int height = rect.height;
-    
-    if (x >= rectX && x <= width + rectX && y >= rectY && y <= rectY + height) {
-        return true;
-    } else {
-        return false;
+    bool PointInRect(GcPoint point, GcRect rect) {
+        
+        int x = point.x;
+        int y = point.y;
+        int rectX = rect.x;
+        int rectY = rect.y;
+        int width = rect.width;
+        int height = rect.height;
+        
+        if (x >= rectX && x <= width + rectX && y >= rectY && y <= rectY + height) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+

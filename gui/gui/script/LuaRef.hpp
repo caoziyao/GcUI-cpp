@@ -21,21 +21,25 @@ extern "C" {
 #include "lualib.h"
 #include "lauxlib.h"
 
-using std::string;
-using std::cout;
-using std::endl;
 
-// typedef int (*lua_CFunction) (lua_State *L);
+namespace gc {
+//    using std::cout;
+//    using std::endl;
+//
+    // typedef int (*lua_CFunction) (lua_State *L);
+    
+    class LuaRef {
+    public:
+        LuaRef();
+        void DoFile(std::string path);
+        void Register(std::string funcName, lua_CFunction func);
+        void Close();
+        //private:
+        //    lua_State *L;
+    };
 
-class LuaRef {
-public:
-    LuaRef();
-    void DoFile(string path);
-    void Register(string funcName, lua_CFunction func);
-    void Close();
-//private:
-//    lua_State *L;
-};
+}
+//using std::string;
 
 
 #endif /* LuaRef_hpp */

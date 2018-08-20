@@ -12,12 +12,15 @@
 #include <stdio.h>
 #include "GcEventType.hpp"
 
-class GcEvent {
-public:
-    int type = EnumUnKnowEvent;
-    int x = 0;
-    int y = 0;
-};
+namespace gc {
+    
+    class GcEvent {
+    public:
+        int type = EnumUnKnowEvent;
+        int x = 0;
+        int y = 0;
+    };
+}
 
 
 #endif /* GcEvent_hpp */

@@ -13,6 +13,9 @@
 #include "GcPoint.hpp"
 #include "GcRect.hpp"
 
-bool PointInRect(GcPoint point, GcRect rect);
+namespace gc {
+    bool PointInRect(GcPoint point, GcRect rect);
+}
+
 
 #endif /* utils_hpp */

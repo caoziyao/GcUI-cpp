@@ -23,5 +23,9 @@
 #include "LuaRef.hpp"
 #include "api.hpp"
 
-void ButtonSample1();
+namespace gc {
+    void ButtonSample1();
+}
+
+
 #endif /* ButtonSample_hpp */
