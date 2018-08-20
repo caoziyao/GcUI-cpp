@@ -54,13 +54,18 @@ void GcRenderer::GcUIClose() {
 }
 
 // 鼠标事件
-void GcRenderer::GcOnMouse(SDL_Event event, GcEvent *gcEvent) {
+void GcRenderer::GcOnMouse(SDL_Event *event, GcEvent *gcEvent) {
     
-    if (event.type == SDL_MOUSEBUTTONDOWN) {
+    SDL_MouseButtonEvent *e = (SDL_MouseButtonEvent *)event;
+    int x = e->x;
+    int y = e->y;
+    
+    if (e->type == SDL_MOUSEBUTTONDOWN) {
         // todo 枚举
         gcEvent->type = EnumMouseButtonDown;
     }
-    
+    gcEvent->x = x;
+    gcEvent->y = y;
 }
 
 // 键盘事件
@@ -79,7 +84,7 @@ GcEvent GcRenderer::UpdateInput() {
             case SDL_MOUSEBUTTONUP:
             case SDL_MOUSEMOTION:
                 // 鼠标事件
-                GcOnMouse(event, &e);
+                GcOnMouse(&event, &e);
                 break;
             case SDL_KEYDOWN:
             case SDL_KEYUP:
@@ -92,7 +97,6 @@ GcEvent GcRenderer::UpdateInput() {
                 exit(0);
                 break;
         }
-       
     }
     return e;
 }

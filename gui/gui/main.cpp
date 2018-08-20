@@ -31,7 +31,7 @@
 #include "gtest/gtest.h"
 #include "LuaRef.hpp"
 #include "api.hpp"
-
+#include "ButtonSample.hpp"
 //using std::string;
 
 // Runs all tests using Google Test.
@@ -40,39 +40,11 @@ int RunTest(int argc,  char ** argv) {
     return RUN_ALL_TESTS();
 }
 
-void RunGui() {
-    int w = 800;
-    int h = 600;
-    
-    GcGui gui(w, h, "sss");
-//    LuaRef lua;
-//    lua.DoFile("/Users/Shared/github/GcUI-cpp/gui/gui/script/config.lua");
-    
-    
-    GcRect rect(10, 10, 120, 230);
-    GcColor viewColor(255, 255, 255, 255);
-    
-    GuiView view(rect, viewColor);
-    gui.AddView(&view);
-    
-    GcRect btnRect(15, 205, 100, 30);
-    GcColor btnColor(12, 12, 100, 255);
-    GuiButton btn(btnRect, btnColor);
-    
-    btn.renderer = view.renderer;
-    view.AddElements(&btn);
-    
-    LuaRef lua;
-    GuiApi api(&gui, &lua);
-    
-    api.RunScript("/Users/Shared/github/GcUI-cpp/gui/gui/script/config.lua");
-    gui.run();
-}
-
-
 int main(int argc,  char ** argv) {
 //    RunTest(argc, argv);
-    RunGui();
+//    RunGui();
+    
+    ButtonSample1();
     
     return 0;
 }

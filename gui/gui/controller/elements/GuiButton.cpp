@@ -19,7 +19,6 @@ void GuiButton::Draw() {
     GcColor color = this->backgroundColor;
 
     this->renderer->DrawRect(rect, color);
-    
     if (this->pressed) {
         this->renderer->RenderFillRect(rect, color);
     }
@@ -28,6 +27,22 @@ void GuiButton::Draw() {
 // event
 void GuiButton::OnMouse(GcEvent event) {
     std::cout << "btn," << std::endl;
+    
+    int x = event.x;
+    int y = event.y;
+    GcPoint point(x, y);
+    GcRect rect = this->rect;
+    
+    if (PointInRect(point, rect)) {
+        this->pressed = true;
+    } else {
+        this->pressed = false;
+    }
+    
+    if (this->pressed) {
+        this->OnButtonDown();
+    }
+    
 }
 
 void GuiButton::OnKey(GcEvent event) {

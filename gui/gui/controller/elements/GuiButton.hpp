@@ -13,6 +13,9 @@
 #include "GuiView.hpp"
 #include "GcEvent.hpp"
 #include "GcEventType.hpp"
+#include "GcPoint.hpp"
+#include "utils.hpp"
+#include "GcRect.hpp"
 
 class GuiButton:public GuiView {
 public:
@@ -26,6 +29,8 @@ public:
     // evnet
     void OnMouse(GcEvent event);
     void OnKey(GcEvent event);
+    
+    void (*OnButtonDown)();
 };
 
 #endif /* button_hpp */

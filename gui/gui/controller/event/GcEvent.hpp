@@ -15,6 +15,8 @@
 class GcEvent {
 public:
     int type = EnumUnKnowEvent;
+    int x = 0;
+    int y = 0;
 };
 
 

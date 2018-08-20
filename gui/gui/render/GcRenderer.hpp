@@ -39,7 +39,7 @@ public:
     GcEvent UpdateInput();
     void RenderFillRect(GcRect rect, GcColor color);
 private:
-    void GcOnMouse(SDL_Event event, GcEvent *gcEvent);
+    void GcOnMouse(SDL_Event *event, GcEvent *gcEvent);
     void GcOnKey(SDL_Event event);
     void GcUIClose();
     SDL_Window *window;

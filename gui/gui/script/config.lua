@@ -20,3 +20,4 @@ drawLine()
 
 CreateButton(25, 35, 100, 30)
 CreateButton(35, 85, 200, 30)
+CreateButton(65, 155, 50, 50)
