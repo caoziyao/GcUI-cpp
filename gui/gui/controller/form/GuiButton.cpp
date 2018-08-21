@@ -27,23 +27,27 @@ namespace gc{
     
     // event
     void GuiButton::OnMouse(GcEvent event) {
-        std::cout << "btn," << std::endl;
-        
+//        std::cout << "btn," << std::endl;
         int x = event.x;
         int y = event.y;
         GcPoint point(x, y);
         GcRect rect = this->rect;
         
-        if (PointInRect(point, rect)) {
-            this->pressed = true;
-        } else {
+        int type = event.type;
+        
+        if (type == EnumMouseButtonDown) {
+            if (PointInRect(point, rect)) {
+                this->pressed = true;
+            } else {
+                this->pressed = false;
+            }
+        } else if (type == EnumMouseButtonUp) {
             this->pressed = false;
         }
         
         if (this->pressed) {
             this->OnButtonDown();
         }
-        
     }
     
     void GuiButton::OnKey(GcEvent event) {

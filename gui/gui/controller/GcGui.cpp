@@ -57,10 +57,15 @@ namespace gc {
         }
     }
     
+    // draw iamge
+    void GcGui::DrawImage() {
+//        this->renderer.DrawImage(<#std::string path#>)
+    }
+    
     // update input
     void GcGui::UpdateInput() {
         GcEvent e = this->renderer.UpdateInput();
-        if (e.type == EnumMouseButtonDown) {
+        if (e.type == EnumMouseButtonDown || e.type == EnumMouseButtonUp) {
             for (GuiView *view : this->views) {
                 view->OnMouse(e);
             }

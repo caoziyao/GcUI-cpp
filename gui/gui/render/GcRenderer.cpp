@@ -56,18 +56,21 @@ namespace gc {
     }
     
     // 鼠标事件
-    void GcRenderer::GcOnMouse(SDL_Event *event, GcEvent *gcEvent) {
+    void GcRenderer::GcOnMouse(SDL_Event *event, GcEvent *gcevent) {
         
         SDL_MouseButtonEvent *e = (SDL_MouseButtonEvent *)event;
         int x = e->x;
         int y = e->y;
+        size_t type = e->type;
         
-        if (e->type == SDL_MOUSEBUTTONDOWN) {
-            // todo 枚举
-            gcEvent->type = EnumMouseButtonDown;
+        if (type == SDL_MOUSEBUTTONDOWN) {
+            gcevent->type = EnumMouseButtonDown;
+        } else if (type == SDL_MOUSEBUTTONUP) {
+            gcevent->type = EnumMouseButtonUp;
         }
-        gcEvent->x = x;
-        gcEvent->y = y;
+        
+        gcevent->x = x;
+        gcevent->y = y;
     }
     
     // 键盘事件
@@ -142,5 +145,12 @@ namespace gc {
         SDL_RenderFillRect(renderer, &r);
     }
     
+    // 画图
+    void GcRenderer::DrawImage(string path, GcRect rect) {
+        SDL_Renderer *renderer = this->renderer;
+        GcImage img(renderer, path);
+        // rect
+        img.DrawImage();
+    }
 }
 

@@ -16,6 +16,7 @@
 
 #include "GuiView.hpp"
 #include "GcRenderer.hpp"
+#include "GcImage.hpp"
 #include "GcEvent.hpp"
 #include "GcEventType.hpp"
 
@@ -33,6 +34,7 @@ namespace gc {
         void show();
         void Clear();
         void draw();
+        void DrawImage();
         void UpdateInput();
         void update();
         int numOfViews = 0;

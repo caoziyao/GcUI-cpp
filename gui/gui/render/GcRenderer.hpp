@@ -20,6 +20,7 @@
 #include "GcColor.hpp"
 #include "GcEvent.hpp"
 #include "GcEventType.hpp"
+#include "GcImage.hpp"
 
 namespace gc {
     
@@ -35,6 +36,7 @@ namespace gc {
         void DrawLine();
         void DrawText();
         void LoadFont();
+        void DrawImage(std::string path, GcRect rect);
         void Show();
         GcEvent UpdateInput();
         void RenderFillRect(GcRect rect, GcColor color);

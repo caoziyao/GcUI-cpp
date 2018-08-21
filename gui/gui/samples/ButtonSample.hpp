@@ -22,6 +22,7 @@
 #include "gtest/gtest.h"
 #include "LuaRef.hpp"
 #include "api.hpp"
+#include "GuiImage.hpp"
 
 namespace gc {
     void ButtonSample1();
