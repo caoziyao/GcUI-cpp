@@ -1,13 +1,14 @@
 //
-//  GuiCheckbox.hpp
+//  GuiLabel.hpp
 //  gui
 //
-//  Created by working on 2018/8/21.
+//  Created by working on 2018/8/23.
 //  Copyright © 2018年 working. All rights reserved.
 //
 
-#ifndef GuiCheckbox_hpp
-#define GuiCheckbox_hpp
+#ifndef GuiLabel_hpp
+#define GuiLabel_hpp
+
 
 #include <stdio.h>
 #include <string>
@@ -21,20 +22,21 @@
 
 namespace gc {
     
-    class GuiCheckbox: public GuiView{
+    class GuiLabel: public GuiView{
     public:
-        GuiCheckbox(GcRect rect, GcColor backgroundColor, GcColor checkedColor);
+        GuiLabel(GcRect rect, GcColor backgroundColor, std::string text);
         void Initialize();
         void Draw();
-        ~GuiCheckbox();
+        ~GuiLabel();
         void OnMouse(GcEvent event);
     private:
         GcRect rect;
         GcColor backgroundColor;
-        GcColor checkedColor;
+        std::string text;
         bool checked = false;
     };
     
 }
 
-#endif /* GuiCheckbox_hpp */
+
+#endif /* GuiLabel_hpp */

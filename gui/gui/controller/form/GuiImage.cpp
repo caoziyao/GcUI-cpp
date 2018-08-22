@@ -25,7 +25,6 @@ namespace gc {
         GcColor color = this->backgroundColor;
         
         this->renderer->DrawImage("/Users/Shared/github/GcUI-cpp/gui/gui/resources/image/brush.png", rect);
-        
     }
     
     void GuiImage::Initialize(string imageUrl) {

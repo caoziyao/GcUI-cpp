@@ -23,6 +23,9 @@
 #include "LuaRef.hpp"
 #include "api.hpp"
 #include "GuiImage.hpp"
+#include "GuiRadio.hpp"
+#include "GuiInput.hpp"
+#include "GuiLabel.hpp"
 
 namespace gc {
     void ButtonSample1();

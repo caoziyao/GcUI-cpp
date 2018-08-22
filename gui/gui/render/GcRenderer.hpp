@@ -21,6 +21,7 @@
 #include "GcEvent.hpp"
 #include "GcEventType.hpp"
 #include "GcImage.hpp"
+#include "GcTextRender.hpp"
 
 namespace gc {
     
@@ -34,18 +35,20 @@ namespace gc {
         void DrawRect(GcRect rect, GcColor color);
         void DrawCircle();
         void DrawLine();
-        void DrawText();
+        void DrawText(std::string text);
         void LoadFont();
         void DrawImage(std::string path, GcRect rect);
         void Show();
         GcEvent UpdateInput();
         void RenderFillRect(GcRect rect, GcColor color);
+        TTF_Font *font;
     private:
         void GcOnMouse(SDL_Event *event, GcEvent *gcEvent);
         void GcOnKey(SDL_Event event);
         void GcUIClose();
         SDL_Window *window;
         SDL_Renderer *renderer;
+        
     };
 
 }

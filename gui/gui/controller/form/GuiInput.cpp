@@ -7,3 +7,31 @@
 //  输入框
 
 #include "GuiInput.hpp"
+
+namespace gc {
+    
+    using namespace std;
+    
+    GuiInput::GuiInput(GcRect rect, GcColor backgroundColor, GcColor checkedColor): GuiView(rect, backgroundColor),
+    rect(rect),
+    backgroundColor(backgroundColor),
+    checkedColor(checkedColor) {
+        
+    }
+    
+    GuiInput::~GuiInput(){
+        
+    }
+    
+    void GuiInput::Draw() {
+//        this->renderer->DrawText();
+    }
+    
+    void GuiInput::Initialize() {
+    }
+    
+    void GuiInput::OnMouse(GcEvent event) {
+    
+    }
+    
+}

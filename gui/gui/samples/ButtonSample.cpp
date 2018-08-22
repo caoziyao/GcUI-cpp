@@ -28,22 +28,44 @@ namespace gc {
         gui.AddView(&view);
         
         // button
-        GcRect btnRect(15, 205, 100, 30);
+        GcRect btnRect(50, 50, 100, 30);
         GcColor btnColor(12, 12, 100, 255);
         GuiButton btn(btnRect, btnColor);
+        btn.OnButtonDown = &click;
+        btn.renderer = view.renderer;
         
         // image
-        GcRect imgRect(150, 200, 100, 30);
+        GcRect imgRect(150, 50, 100, 100);
         GcColor imgColor(12, 12, 100, 255);
-        
-        GuiImage img(btnRect, btnColor);
+        GuiImage img(imgRect, imgColor);
         img.renderer = view.renderer;
         
-        btn.OnButtonDown = &click;
+        // radio
+        GcRect radioRect(50, 100, 30, 30);
+        GcColor radioColor(120, 120, 100, 255);
+        GcColor radioCheckidColor(12, 120, 100, 255);
+        GuiRadio radio(radioRect, radioColor, radioCheckidColor);
+        radio.renderer = view.renderer;
         
-        btn.renderer = view.renderer;
+        // input
+//        GcRect inputRect(50, 100, 30, 30);
+//        GcColor inputColor(120, 120, 100, 255);
+//        GcColor inputCheckidColor(12, 120, 100, 255);
+//        GuiInput input(inputRect, inputColor, inputCheckidColor);
+//        input.renderer = view.renderer;
+        
+        // label
+        GcRect labelRect(50, 100, 30, 30);
+        GcColor labelColor(120, 120, 100, 255);
+        GuiLabel label(labelRect, labelColor, "labelCheckidColor");
+        label.renderer = view.renderer;
+        
+        // add
         view.AddElements(&btn);
         view.AddElements(&img);
+        view.AddElements(&radio);
+        view.AddElements(&label);
+//        view.AddElements(&input);
         
         gui.run();
     }

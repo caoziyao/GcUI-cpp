@@ -19,12 +19,13 @@ namespace gc {
         this->renderer = renderer;
     }
     
-    void GcImage::DrawImage() {
+    void GcImage::DrawImage(GcRect rect) {
         
-        SDL_Rect dstrect = {
-            100, 100,
-            200, 200,
-        };
+        SDL_Rect r;
+        r.x = rect.x;
+        r.y = rect.y;
+        r.w = rect.width;
+        r.h = rect.height;
         
         string path = this->imageUrl;
         SDL_Renderer *renderer = this->renderer;
@@ -32,6 +33,6 @@ namespace gc {
         
 //        SDL_Surface *newTexture = SDL_CreateTextureFromSurface(renderer, icon);
         SDL_Texture *newTexture = SDL_CreateTextureFromSurface(renderer, icon);
-        SDL_RenderCopy(renderer, newTexture, NULL, &dstrect);
+        SDL_RenderCopy(renderer, newTexture, NULL, &r);
     }
 }

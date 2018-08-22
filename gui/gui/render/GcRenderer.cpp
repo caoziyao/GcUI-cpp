@@ -10,8 +10,20 @@
 
 namespace gc {
     using namespace std;
+    
     GcRenderer::GcRenderer(int width, int height, string title) {
         SDL_Init(SDL_INIT_VIDEO);
+        
+        TTF_Init();  // 字体
+        
+        // init font
+        const char *fontPath = "/Users/Shared/github/GcUI-cpp/gui/gui/resources/OpenSans-Regular.ttf";
+        static TTF_Font *font;
+        font = TTF_OpenFont(fontPath, 24);
+        if (font == NULL) {
+            printf("error font\n");
+        }
+        this->font = font;
         
         // 创建窗口
         // 窗口标题 窗口x 窗口y 宽 高 额外参数
@@ -127,6 +139,7 @@ namespace gc {
         r.y = rect.y;
         r.w = rect.width;
         r.h = rect.height;
+        
         SDL_Renderer *renderer = this->renderer;
         SDL_RenderDrawRect(renderer, &r);
     }
@@ -150,7 +163,15 @@ namespace gc {
         SDL_Renderer *renderer = this->renderer;
         GcImage img(renderer, path);
         // rect
-        img.DrawImage();
+        img.DrawImage(rect);
+    }
+    
+    // 字
+    void GcRenderer::DrawText(string text) {
+        SDL_Renderer *renderer = this->renderer;
+        GcTextRender t(renderer);
+        t.font = this->font;
+        t.Draw(text);
     }
 }
 

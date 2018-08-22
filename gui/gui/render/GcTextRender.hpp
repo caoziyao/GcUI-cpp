@@ -1,13 +1,13 @@
 //
-//  GcImage.hpp
+//  GcTextRender.hpp
 //  gui
 //
 //  Created by working on 2018/8/22.
 //  Copyright © 2018年 working. All rights reserved.
 //
 
-#ifndef GcImage_hpp
-#define GcImage_hpp
+#ifndef GcTextRender_hpp
+#define GcTextRender_hpp
 
 #include <stdio.h>
 #include <iostream>
@@ -18,15 +18,14 @@
 
 namespace gc {
     
-    class GcImage {
+    class GcTextRender {
     public:
-        GcImage(SDL_Renderer *renderer, std::string imageUrl);
-        void DrawImage(GcRect rect);
+        GcTextRender(SDL_Renderer *renderer);
+        void Draw(std::string text);
+        TTF_Font *font = nullptr;
     private:
-        std::string imageUrl;
-        SDL_Surface *icon;
         SDL_Renderer *renderer;
     };
 }
 
-#endif /* GcImage_hpp */
+#endif /* GcTextRender_hpp */
