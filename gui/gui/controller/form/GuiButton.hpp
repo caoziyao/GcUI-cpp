@@ -26,7 +26,10 @@ namespace gc{
         GcRenderer *renderer;
         void Draw();
         GuiButton(GcRect rect, GcColor color);
-        bool pressed = false;   // true 按下
+        enum type {UP, DOWN};
+        int pressed = type::UP;   // 按下
+        bool isActive;
+//        int direction = type::UP;
         
         // evnet
         void OnMouse(GcEvent event);

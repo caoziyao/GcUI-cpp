@@ -18,9 +18,9 @@ namespace gc{
     void GuiButton::Draw() {
         GcRect rect = this->rect;
         GcColor color = this->backgroundColor;
-        
+    
         this->renderer->DrawRect(rect, color);
-        if (this->pressed) {
+        if (this->pressed == type::DOWN) {
             this->renderer->RenderFillRect(rect, color);
         }
     }
@@ -37,15 +37,15 @@ namespace gc{
         
         if (type == EnumMouseButtonDown) {
             if (PointInRect(point, rect)) {
-                this->pressed = true;
+                this->pressed = DOWN;
             } else {
-                this->pressed = false;
+                this->pressed = UP;
             }
         } else if (type == EnumMouseButtonUp) {
-            this->pressed = false;
+            this->pressed = UP;
         }
         
-        if (this->pressed) {
+        if (this->pressed == DOWN) {
             this->OnButtonDown();
         }
     }
